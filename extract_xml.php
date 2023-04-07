@@ -89,7 +89,6 @@ arrayToXml($table, $xml, "_root_");
 $xml->asXML('output.xml');
 
 
-// ovde su bili hederi
 $xml_string = $xml->saveXML();
 print($xml_string);
 $filename = "Report2" . ".xml";
