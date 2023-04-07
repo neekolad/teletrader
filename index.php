@@ -28,15 +28,16 @@
 <body>
     <nav class="navbar bg-dark navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">Navbar</a>
-          </div>
+            <a class="navbar-brand" href="#"></a>
+        </div>
       </nav>
     <div class="container h-100">
         <!-- Content here -->
-        <div class="">
-            <h2>List of reports</h2>
-            <div>
-             <table>
+        <div class="container">
+        <h2>List of reports</h2>
+          <div class="col-6">
+          <div>
+             <table class="table table-striped table-bordered text-center">
               <thead>
                 <tr>
                   <th>Report Name</td>
@@ -56,13 +57,16 @@
               
              </table>
             </div>
+          </div>
+            
+            
         </div>
         
 
       </div>
       <footer class="sticky-bottom bg-dark">
         <div class="container">
-          <span class="text-light">Footer</span>
+          <span class="text-light">Nikola Despic - 064 668 71 60 - neekolad@gmail.com</span>
         </div>
       </footer>
 </body>

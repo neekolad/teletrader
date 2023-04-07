@@ -2,18 +2,10 @@
 
 include 'vendor/autoload.php';
 
+// Load database conf
+include 'mysqli_connect.php';
+
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
-
-
-// Database connection
-
-$dbc = @mysqli_connect('localhost', 'nikola', '123123', 'project_db');
-
-// Check connection
-if (!$dbc->connect_errno != 0) {
-  echo $dbc->connect_error;
-}
-
 
 // Make query
 
@@ -38,6 +30,8 @@ if (mysqli_num_rows($r) > 0) {
     }
 }
 
+
+// Make spreadsheet and select it
 
 $file = new Spreadsheet();
 $active_sheet = $file->getActiveSheet();
