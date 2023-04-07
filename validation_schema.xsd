@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
+
+<xs:simpleType name="ISIN">
+	<xs:restriction base="xs:string">
+		<xs:pattern value="[A-Z]{2}[0-9A-Z]{9}[0-9]{1}"/>
+	</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="Currency">
+	<xs:restriction base="xs:string">
+		<xs:pattern value="(([A-Z]){3})?"/>
+	</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="TITLEINFODATAID">
+	<xs:restriction base="xs:int">
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:element name="REPORT">
+<xs:annotation>
+	<xs:documentation>XML Report</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+	<xs:sequence>
+		<xs:element name="ISINS">
+			<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ISIN" maxOccurs="unbounded">
+					<xs:complexType>
+					<xs:sequence>
+						<xs:element name="VALUE" type="ISIN"></xs:element>
+						<xs:element name="VALIDUNTIL" minOccurs="0"></xs:element>
+					</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			</xs:complexType>
+		</xs:element>
+		<xs:element name="TITLEINFODATA">
+			<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TITLEINFO" maxOccurs="unbounded">
+					<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ID" type="TITLEINFODATAID"></xs:element>
+						<xs:element name="ISIN" type="ISIN"></xs:element>
+						<xs:element name="TITLENAME"></xs:element>
+						<xs:element name="CURRENCY" type="Currency"></xs:element>
+						<xs:element name="EMITTENTNAME"></xs:element>
+					</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			</xs:complexType>
+		</xs:element>
+	</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:schema>
